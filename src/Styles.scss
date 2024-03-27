@@ -11,8 +11,10 @@ $Dark-Blue: hsl(209, 23%, 22%);
 $Very-Dark-Blue: hsl(207, 26%, 17%);
 $Very-Dark-Blue: hsl(200, 15%, 8%);
 $Dark-Gray: hsl(0, 0%, 52%);
-$Very-Light-Gray: hsl(0, 0%, 98%);
+$Very-Light-Gray: hsl(0, 0%, 92%);
 $White: hsl(0, 0%, 100%);
+
+$box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
 .nunito-sans {
   font-family: "Nunito Sans", sans-serif;
@@ -37,10 +39,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  position: fixed;
-  top: 0;
+  box-shadow: $box-shadow;
   background-color: white;
+  position: absolute;
 
   .navbar-cont {
     width: 1400px;
@@ -49,43 +50,41 @@ nav {
     justify-content: space-between;
 
     h1.logo {
-        font-weight: 800;
+      font-weight: 800;
     }
 
     .theme-cont {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-        button.theme {
-            all: unset;
-            background-image: url("https://www.iconbolt.com/iconsets/eva-outline/moon.svg");
-            height: 20px;
-            width: 20px;
-            border-radius: 20px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            transition: 0.1s;
+      button.theme {
+        all: unset;
+        background-image: url("https://www.iconbolt.com/iconsets/eva-outline/moon.svg");
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: 0.1s;
 
-            &:hover {
-                box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-                scale: 1.1;
-                transition: 0.1s ;
-                cursor: pointer;
-            }
-
-            &:active {
-                scale: 1;
-            }
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          scale: 1.1;
+          transition: 0.1s;
+          cursor: pointer;
         }
 
- 
-
-        .theme-p {
-            font-weight: 800;
-            font-size: 14px;
+        &:active {
+          scale: 1;
         }
+      }
+
+      .theme-p {
+        font-weight: 800;
+        font-size: 14px;
+      }
     }
   }
 }
@@ -93,13 +92,105 @@ nav {
 //HOME
 
 .home {
-    width: 100vw;
-    height: 2000px;
-    background-color: $Very-Light-Gray;
-    display: flex;
-    justify-content: center;
+  width: 100vw;
+  height: 2000px;
+  padding-top: 70px;
+  background-color: $Very-Light-Gray;
+  display: flex;
+  justify-content: center;
 
-    .home-cont {
-        width: 1400px;
+  .home-cont {
+    width: 1400px;
+  }
+}
+
+//INPUTS
+
+.inputs {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0;
+  position: relative;
+
+  .search {
+    all: unset;
+    height: 50px;
+    background-color: white;
+    box-shadow: $box-shadow;
+    border-radius: 5px;
+    padding: 0 70px;
+    width: 350px;
+    background-image: url("https://www.iconbolt.com/iconsets/hawcons-filled/search.svg");
+    background-repeat: no-repeat;
+    background-position: 20px;
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 500;
+      color: $Dark-Gray;
     }
+  }
+
+  .filter {
+    all: unset;
+    height: 50px;
+    background-color: white;
+    box-shadow: $box-shadow;
+    width: 140px;
+    padding: 0 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    background-image: url("https://www.iconbolt.com/iconsets/darkwing-navigation/down.svg");
+    background-repeat: no-repeat;
+    background-position: 160px;
+    transition: 0.3s ease;
+
+    &.show {
+      background-image: url("https://www.iconbolt.com/iconsets/darkwing-navigation/up.svg");
+      transition: 0.3s ease;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .regions {
+    background-color: white;
+    width: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    position: absolute;
+    right: 0;
+    top: 105px;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: -1;
+
+    &.show {
+      opacity: 1;
+      transition: 0.4s;
+      z-index: 2;
+    }
+
+    ul {
+      list-style-type: none;
+      line-height: 30px;
+
+      li {
+        font-size: 14px;
+        font-weight: 500;
+        transition: 0.2s;
+
+        &:hover {
+          cursor: pointer;
+          font-weight: 800;
+          transition: 0.2s;
+        }
+      }
+    }
+  }
 }
