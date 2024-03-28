@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Inputs = () => {
+const Imputs = () => {
 
     const regions = ["Africa", "America", "Asia", "Europe", "Oceania"]
     const [showRegionDiv, setShowRegionDiv] = useState('')
@@ -28,4 +28,4 @@ const Inputs = () => {
     </div> );
 }
  
-export default Inputs;
+export default Imputs;

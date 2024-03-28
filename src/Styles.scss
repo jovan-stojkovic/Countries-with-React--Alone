@@ -36,6 +36,7 @@ main {
 nav {
   height: 70px;
   width: 100vw;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,8 +50,16 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    h1.logo {
-      font-weight: 800;
+    a {
+      all: unset;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      h1.logo {
+        font-weight: 800;
+      }
     }
 
     .theme-cont {
@@ -93,6 +102,7 @@ nav {
 
 .home {
   width: 100vw;
+  max-width: 100%;
   padding-top: 70px;
   background-color: $Very-Light-Gray;
   display: flex;
@@ -114,6 +124,9 @@ nav {
         border-radius: 8px;
         transition: 0.1s ease-in-out;
 
+        a {
+          all: unset;
+        }
 
         .flag-cont {
           height: 160px;
@@ -133,7 +146,7 @@ nav {
 
           h2 {
             font-weight: 800;
-            margin-bottom: 20px
+            margin-bottom: 20px;
           }
           p {
             font-weight: 800;
@@ -147,7 +160,7 @@ nav {
 
         &:hover {
           cursor: pointer;
-          scale: 1.02;
+          scale: 1.01;
           transition: 0.1s ease-in-out;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
@@ -252,7 +265,6 @@ nav {
   }
 }
 
-
 //TO THE TOP BUTTON
 
 .to-the-top-button {
@@ -285,16 +297,9 @@ nav {
     display: flex;
     visibility: hidden;
     opacity: 0;
-    transition: 0.3s;
-  }
-
-  &.dark {
-    background-color: rgba(73, 95, 115, 0.69);
-
-    .to-the-top-popup {
-      background-color: rgba(73, 95, 115, 0.69);
-      color: black;
-    }
+    scale: 0.5;
+    transition: 0.1s;
+    font-family: "Nunito Sans", sans-serif;
   }
 
   &:hover {
@@ -304,7 +309,8 @@ nav {
   &:hover .to-the-top-popup {
     visibility: visible;
     opacity: 1;
-    transition: 0.3s;
+    transition: 0.1s;
+    scale: 1;
   }
 
   img {
