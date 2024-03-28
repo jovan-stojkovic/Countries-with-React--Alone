@@ -93,7 +93,6 @@ nav {
 
 .home {
   width: 100vw;
-  height: 2000px;
   padding-top: 70px;
   background-color: $Very-Light-Gray;
   display: flex;
@@ -101,6 +100,64 @@ nav {
 
   .home-cont {
     width: 1400px;
+
+    .countries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+
+      .country-card {
+        height: 340px;
+        width: 305px;
+        background-color: white;
+        box-shadow: $box-shadow;
+        border-radius: 8px;
+        transition: 0.1s ease-in-out;
+
+
+        .flag-cont {
+          height: 160px;
+          width: 305px;
+          box-shadow: $box-shadow;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+          }
+        }
+
+        .single-country-info {
+          padding: 20px;
+
+          h2 {
+            font-weight: 800;
+            margin-bottom: 20px
+          }
+          p {
+            font-weight: 800;
+            margin-bottom: 8px;
+
+            span {
+              font-weight: 300;
+            }
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          scale: 1.02;
+          transition: 0.1s ease-in-out;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        &:active {
+          box-shadow: none;
+          scale: 1;
+        }
+      }
+    }
   }
 }
 
