@@ -251,3 +251,63 @@ nav {
     }
   }
 }
+
+
+//TO THE TOP BUTTON
+
+.to-the-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.687);
+  z-index: 5;
+
+  .to-the-top-popup {
+    width: 100px;
+    height: 40px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.687);
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    bottom: 80px;
+    right: 25px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  &.dark {
+    background-color: rgba(73, 95, 115, 0.69);
+
+    .to-the-top-popup {
+      background-color: rgba(73, 95, 115, 0.69);
+      color: black;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover .to-the-top-popup {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s;
+  }
+
+  img {
+    height: 50px;
+  }
+}
