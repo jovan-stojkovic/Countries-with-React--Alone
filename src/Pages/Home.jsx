@@ -1,10 +1,12 @@
-import Imputs from "../Components/Imput";
+import Inputs from "../Components/Inputs";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
+  const [searchWord, setSearchWord] = useState("");
+  const [selectRegion, setSelectRegion] = useState('')
 
   const url = "https://restcountries.com/v3.1/all";
 
@@ -24,32 +26,64 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home-cont">
-        <Imputs />
-
-        
+        <Inputs setSearchWord={setSearchWord} setSelectRegion={setSelectRegion}/>
         <div className="countries">
-          {countries.map((country, index) => (
-            <div key={index} className="country-card">
-              <Link to={`/countries/${country.cca3}`}>
-              <div className="flag-cont">
-                <img src={country.flags.svg} alt={country.name.common} />
-              </div>
-              <div className="single-country-info">
-                <h2>{country.name.common}</h2>
-                <p>
-                  Population:{" "}
-                  <span>{country.population.toLocaleString("en-US")}</span>
-                </p>
-                <p>
-                  Region: <span>{country.region}</span>
-                </p>
-                <p>
-                  Capital: <span>{country.capital}</span>
-                </p>
-              </div>
-              </Link>
-            </div>
-          ))}
+          {countries &&
+            countries
+              .filter((country) => {
+                if (searchWord === "") {
+                  return country;
+                } else if (
+                  country.name.common
+                    .toLowerCase()
+                    .includes(searchWord.toLowerCase())
+                ) {
+                  return country;
+                }
+              })
+              .filter((country) => {
+                if (selectRegion === "") {
+                  return country;
+                } else if (
+                  country.region.toLowerCase().includes(selectRegion.toLowerCase())
+                ) {
+                  return country
+                }
+              })
+              .map((country) => {
+                const {
+                  name,
+                  population,
+                  region,
+                  capital,
+                  flags,
+                  index,
+                  cca3,
+                } = country;
+
+                return (
+                  <div className="country-card" key={cca3}>
+                    <Link to={`/countries/${cca3}`}>
+                      <div className="flag-cont">
+                        <img src={flags.svg} alt={name.common} />
+                      </div>
+                      <div className="single-country-info">
+                        <h2>{name.common}</h2>
+                        <p>
+                          Population:{" "}
+                          <span>{population.toLocaleString("en-US")}</span>
+                        </p>
+                        <p>
+                          Region: <span>{region}</span>
+                        </p>
+                        <p>
+                          Capital: <span>{capital}</span>
+                        </p>
+                      </div>
+                    </Link>
+                  </div>
+                );
+              })}
         </div>
       </div>
     </div>
