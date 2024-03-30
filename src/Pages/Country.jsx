@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import ThemeContext from "../Helpers/ThemeContext";
 
 const Country = () => {
+  const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [country, setCountry] = useState([]);
   const { cca3 } = useParams();
@@ -19,7 +21,7 @@ const Country = () => {
   }, []);
 
   return (
-    <div className="single-country-page">
+    <div className={`single-country-page ${theme}`}>
       <div className="inputs">
         <button onClick={() => navigate(-1)} className="back-button">
           Back

@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import ThemeContext from "../Helpers/ThemeContext";
+
 
 const Inputs = ({ setSearchWord, setSelectRegion }) => {
+  const { theme } = useContext(ThemeContext);
   const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
   const [showRegionDiv, setShowRegionDiv] = useState("");
+
 
   const handleRegionClick = () => {
     setShowRegionDiv(showRegionDiv === "" ? "show" : "");
@@ -13,7 +17,7 @@ const Inputs = ({ setSearchWord, setSelectRegion }) => {
   };
 
   return (
-    <div className="inputs">
+    <div className={`inputs ${theme}`}>
       <input
         type="text"
         placeholder="Search for a country..."

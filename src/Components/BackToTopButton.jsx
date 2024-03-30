@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import ThemeContext from "../Helpers/ThemeContext";
 
 const BackToTopButton = () => {
+  const { theme } = useContext(ThemeContext);
   const [backToTopButton, setBackToTopButton] = useState(false);
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const BackToTopButton = () => {
     <>
     
       {backToTopButton && (
-        <button onClick={scrollUp} className="to-the-top-button">
+        <button onClick={scrollUp} className={`to-the-top-button ${theme}`}>
           <div className="to-the-top-popup">To the Top</div>
           <img
             src="https://www.iconbolt.com/iconsets/heroicons-outline/arrow-up-circle.svg"

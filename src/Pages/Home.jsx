@@ -1,12 +1,15 @@
 import Inputs from "../Components/Inputs";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext} from "react";
 import { Link } from "react-router-dom";
+import ThemeContext from "../Helpers/ThemeContext";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [searchWord, setSearchWord] = useState("");
-  const [selectRegion, setSelectRegion] = useState('')
+  const [selectRegion, setSelectRegion] = useState('');
+  const { theme } = useContext(ThemeContext);
+
 
   const url = "https://restcountries.com/v3.1/all";
 
@@ -24,7 +27,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home">
+    <div className={`home ${theme}`}>
       <div className="home-cont">
         <Inputs setSearchWord={setSearchWord} setSelectRegion={setSelectRegion}/>
         <div className="countries">

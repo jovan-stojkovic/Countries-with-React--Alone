@@ -14,7 +14,11 @@ $Dark-Gray: hsl(0, 0%, 52%);
 $Very-Light-Gray: hsl(0, 0%, 92%);
 $White: hsl(0, 0%, 100%);
 
-$box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+$box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$box-shadow-strong: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+  rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+$ease: 0.2s;
 
 .nunito-sans {
   font-family: "Nunito Sans", sans-serif;
@@ -29,6 +33,11 @@ $box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
 main {
   font-family: "Nunito Sans", sans-serif;
+  min-height: 100vh;
+
+  &.dark {
+    background-color: $Very-Dark-Blue;
+  }
 }
 
 //NAVBAR
@@ -43,6 +52,7 @@ nav {
   box-shadow: $box-shadow;
   background-color: white;
   position: absolute;
+  transition: $ease;
 
   .navbar-cont {
     width: 1400px;
@@ -64,8 +74,9 @@ nav {
 
     .theme-cont {
       display: flex;
+      width: 110px;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
 
       button.theme {
         all: unset;
@@ -98,6 +109,46 @@ nav {
   }
 }
 
+nav.dark {
+  background-color: $Dark-Blue;
+
+  .navbar-cont {
+    h1.logo {
+      color: white;
+    }
+
+    .theme-cont {
+      button.theme {
+        all: unset;
+        background-image: url("https://www.iconbolt.com/iconsets/clarity-solid/sun.svg");
+        filter: invert(100%);
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: 0.1s;
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          scale: 1.1;
+          transition: 0.1s;
+          cursor: pointer;
+        }
+
+        &:active {
+          scale: 1;
+        }
+      }
+
+      .theme-p {
+        color: white;
+      }
+    }
+  }
+}
+
 //HOME
 
 .home {
@@ -108,6 +159,7 @@ nav {
   background-color: $Very-Light-Gray;
   display: flex;
   justify-content: center;
+  padding-bottom: 100px;
 
   .home-cont {
     width: 1400px;
@@ -173,6 +225,37 @@ nav {
       }
     }
   }
+
+  &.dark {
+    background-color: $Very-Dark-Blue;
+  
+    .home-cont {
+     
+      .countries {
+
+        .country-card {
+          background-color: $Dark-Blue;
+  
+          .flag-cont {
+            height: 160px;
+            width: 305px;
+            box-shadow: $box-shadow;
+            filter: brightness(90%);
+          }
+  
+          .single-country-info {
+  
+            h2 {
+              color: white;
+            }
+            p {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 //INPUTS
@@ -193,7 +276,7 @@ nav {
     border-radius: 5px;
     padding: 0 70px;
     width: 350px;
-    background-image: url("https://www.iconbolt.com/iconsets/hawcons-filled/search.svg");
+    background-image: url("./Assets/search-gray.svg");
     background-repeat: no-repeat;
     background-position: 20px;
 
@@ -201,6 +284,14 @@ nav {
       font-size: 14px;
       font-weight: 500;
       color: $Dark-Gray;
+    }
+
+    &:focus {
+      box-shadow: $box-shadow-strong;
+    }
+
+    &:hover {
+      box-shadow: $box-shadow-strong;
     }
   }
 
@@ -223,8 +314,14 @@ nav {
       background-image: url("https://www.iconbolt.com/iconsets/darkwing-navigation/up.svg");
       transition: 0.3s ease;
     }
+
     &:hover {
       cursor: pointer;
+      box-shadow: $box-shadow-strong;
+    }
+
+    &:focus {
+      box-shadow: $box-shadow-strong;
     }
   }
 
@@ -255,12 +352,45 @@ nav {
         font-size: 14px;
         font-weight: 500;
         transition: 0.2s;
+        padding: 0 10px;
 
         &:hover {
           cursor: pointer;
           font-weight: 800;
           transition: 0.2s;
+          background-color: $Very-Light-Gray;
+          border-radius: 5px;
         }
+      }
+    }
+  }
+
+  &.dark {
+    .search {
+      background-color: $Dark-Blue;
+      color: white;
+      background-image: url("./Assets/search-white.svg");
+
+      &::placeholder {
+        color: white;
+      }
+    }
+
+    .filter {
+      background-color: $Dark-Blue;
+      color: white;
+      background-image: url("./Assets/down.svg");
+
+      &.show {
+        background-image: url("./Assets/up.svg");
+      }
+    }
+
+    .regions {
+      background-color: $Dark-Blue;
+
+      li {
+        color: white;
       }
     }
   }
@@ -317,10 +447,204 @@ nav {
   img {
     height: 50px;
   }
+
+  &.dark {
+    background-color: $Dark-Blue;
+  
+    .to-the-top-popup {
+      background-color: $Dark-Blue;
+      color: white;
+    }
+  
+    &:hover .to-the-top-popup {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.1s;
+      scale: 1;
+    }
+  
+    img {
+      height: 50px;
+      filter: invert(80%);
+    }
+  }
 }
 
 //COUNTRY PAGE
 
 .single-country-page {
-  padding-top: 100px;
+  padding-top: 70px;
+  width: 1400px;
+  margin: 0 auto;
+
+  .back-button {
+    all: unset;
+    height: 40px;
+    width: 60px;
+    background-color: white;
+    box-shadow: $box-shadow;
+    padding: 0 30px;
+    text-align: right;
+    border-radius: 5px;
+    font-weight: 800;
+    background-image: url("https://www.iconbolt.com/iconsets/darkwing-navigation/arrow-left.svg");
+    background-repeat: no-repeat;
+    background-position: 20px;
+    transition: 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: $box-shadow-strong;
+    }
+  }
+
+  .country {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .country-page-cont {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: 150px;
+
+      .flag {
+        height: 500px;
+        width: 700px;
+        border-radius: 10px;
+        box-shadow: $box-shadow;
+
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+      }
+
+      .info-single-country {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        width: 650px;
+
+        h1 {
+          font-size: 2.5rem;
+          font-weight: 800;
+        }
+
+        .all-info {
+          display: flex;
+          gap: 70px;
+
+          h5 {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 8px;
+
+            span {
+              font-weight: 500;
+              margin-left: 8px;
+            }
+          }
+        }
+
+        .border-container {
+          display: flex;
+          gap: 20px;
+          align-items: top;
+
+          h5 {
+            font-size: 16px;
+            font-weight: 800;
+          }
+
+          .borders {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            a {
+              all: unset;
+              height: 30px;
+              width: 80px;
+              border-radius: 5px;
+              box-shadow: $box-shadow;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              &:hover {
+                cursor: pointer;
+                box-shadow: $box-shadow-strong;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.dark {
+  
+    .back-button {
+      background-color: $Dark-Blue;
+      color: white;
+      background-image: url("./Assets/arrow-left.svg");
+    }
+  
+    .country {
+  
+      .country-page-cont {
+  
+        .flag {
+          filter: brightness(90%);
+        }
+  
+        .info-single-country {
+
+  
+          h1 {
+            color: white;
+          }
+  
+          .all-info {
+  
+            h5 {
+              color: white;
+            }
+          }
+  
+          .border-container {
+  
+            h5 {
+              color: white;
+            }
+  
+            .borders {
+  
+              a {
+                all: unset;
+                background-color: $Dark-Blue;
+                color: white;
+                height: 30px;
+                width: 80px;
+                border-radius: 5px;
+                box-shadow: $box-shadow;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+  
+                &:hover {
+                  cursor: pointer;
+                  box-shadow: $box-shadow-strong;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
