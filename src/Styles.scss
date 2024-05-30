@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap");
 
-// - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
-// - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
-// - Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-// - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-// - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-// - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
-
 $Dark-Blue: hsl(209, 23%, 22%);
 $Very-Dark-Blue: hsl(207, 26%, 17%);
 $Very-Dark-Blue: hsl(200, 15%, 8%);
@@ -228,23 +221,18 @@ nav.dark {
 
   &.dark {
     background-color: $Very-Dark-Blue;
-  
-    .home-cont {
-     
-      .countries {
 
+    .home-cont {
+      .countries {
         .country-card {
           background-color: $Dark-Blue;
-  
+
           .flag-cont {
-            height: 160px;
-            width: 305px;
             box-shadow: $box-shadow;
             filter: brightness(90%);
           }
-  
+
           .single-country-info {
-  
             h2 {
               color: white;
             }
@@ -450,19 +438,19 @@ nav.dark {
 
   &.dark {
     background-color: $Dark-Blue;
-  
+
     .to-the-top-popup {
       background-color: $Dark-Blue;
       color: white;
     }
-  
+
     &:hover .to-the-top-popup {
       visibility: visible;
       opacity: 1;
       transition: 0.1s;
       scale: 1;
     }
-  
+
     img {
       height: 50px;
       filter: invert(80%);
@@ -587,43 +575,35 @@ nav.dark {
   }
 
   &.dark {
-  
     .back-button {
       background-color: $Dark-Blue;
       color: white;
       background-image: url("./Assets/arrow-left.svg");
     }
-  
+
     .country {
-  
       .country-page-cont {
-  
         .flag {
           filter: brightness(90%);
         }
-  
-        .info-single-country {
 
-  
+        .info-single-country {
           h1 {
             color: white;
           }
-  
+
           .all-info {
-  
             h5 {
               color: white;
             }
           }
-  
+
           .border-container {
-  
             h5 {
               color: white;
             }
-  
+
             .borders {
-  
               a {
                 all: unset;
                 background-color: $Dark-Blue;
@@ -635,7 +615,7 @@ nav.dark {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-  
+
                 &:hover {
                   cursor: pointer;
                   box-shadow: $box-shadow-strong;
@@ -643,6 +623,563 @@ nav.dark {
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    height: 50px;
+    width: 100vw;
+    padding: 10px;
+
+    .navbar-cont {
+      width: 100vw;
+
+      h1.logo {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .theme-cont {
+        width: 90px;
+
+        button.theme {
+          height: 15px;
+          width: 15px;
+        }
+
+        .theme-p {
+          font-weight: 600;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  nav.dark {
+    .navbar-cont {
+      .theme-cont {
+        button.theme {
+          height: 15px;
+          width: 15px;
+        }
+      }
+    }
+  }
+
+  //HOME
+
+  .home {
+    padding-top: 50px;
+
+    .home-cont {
+      width: 100vw;
+      padding: 10px;
+
+      .countries {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+
+        .country-card {
+          height: 290px;
+          width: 260px;
+
+          .flag-cont {
+            height: 150px;
+            width: 260px;
+          }
+
+          .single-country-info {
+            padding: 10px;
+
+            h2 {
+              font-weight: 800;
+              font-size: 18px;
+              margin-bottom: 15px;
+            }
+            p {
+              font-weight: 700;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //INPUTS
+
+  .inputs {
+    padding: 40px 0;
+
+    .search {
+      height: 40px;
+      padding: 0 40px;
+      width: 45%;
+      background-position: 10px;
+
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+
+    .filter {
+      height: 40px;
+      width: 140px;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .regions {
+      top: 70px;
+
+      ul {
+        line-height: 25px;
+
+        li {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &.dark {
+      .search {
+        background-color: $Dark-Blue;
+        color: white;
+        background-image: url("./Assets/search-white.svg");
+
+        &::placeholder {
+          color: white;
+        }
+      }
+
+      .filter {
+        background-color: $Dark-Blue;
+        color: white;
+        background-image: url("./Assets/down.svg");
+
+        &.show {
+          background-image: url("./Assets/up.svg");
+        }
+      }
+
+      .regions {
+        background-color: $Dark-Blue;
+
+        li {
+          color: white;
+        }
+      }
+    }
+  }
+
+  //COUNTRY PAGE
+
+  .single-country-page {
+    padding-top: 50px;
+    width: 100vw;
+    margin: 0 auto;
+
+    .back-button {
+      margin-left: 10px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .country {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .country-page-cont {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .flag {
+          height: auto;
+          width: 100%;
+        }
+
+        .info-single-country {
+          gap: 30px;
+          width: 100%;
+
+          h1 {
+            font-size: 2rem;
+          }
+
+          .all-info {
+            h5 {
+              font-weight: 700;
+
+              span {
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  nav {
+    height: 60px;
+    width: 100vw;
+    padding: 10px;
+
+    .navbar-cont {
+      width: 100vw;
+
+      h1.logo {
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .theme-cont {
+        width: 100px;
+
+        button.theme {
+          height: 20px;
+          width: 20px;
+        }
+
+        .theme-p {
+          font-weight: 600;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  nav.dark {
+    .navbar-cont {
+      .theme-cont {
+        button.theme {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  //HOME
+
+  .home {
+    padding-top: 50px;
+
+    .home-cont {
+      width: 100vw;
+      padding: 10px;
+
+      .countries {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+
+        .country-card {
+          height: 320px;
+          width: 275px;
+
+          .flag-cont {
+            height: 170px;
+            width: 275px;
+          }
+
+          .single-country-info {
+            padding: 10px;
+
+            h2 {
+              font-weight: 800;
+              font-size: 18px;
+              margin-bottom: 15px;
+            }
+            p {
+              font-weight: 700;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //INPUTS
+
+  .inputs {
+    padding: 40px 0;
+
+    .search {
+      height: 50px;
+      padding: 0 40px;
+      width: 45%;
+      background-position: 10px;
+
+      &::placeholder {
+        font-size: 15px;
+      }
+    }
+
+    .filter {
+      height: 50px;
+      width: 140px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .regions {
+      top: 105px;
+
+      ul {
+        line-height: 25px;
+
+        li {
+          font-size: 12px;
+        }
+      }
+    }
+
+    &.dark {
+      .search {
+        background-color: $Dark-Blue;
+        color: white;
+        background-image: url("./Assets/search-white.svg");
+
+        &::placeholder {
+          color: white;
+        }
+      }
+
+      .filter {
+        background-color: $Dark-Blue;
+        color: white;
+        background-image: url("./Assets/down.svg");
+
+        &.show {
+          background-image: url("./Assets/up.svg");
+        }
+      }
+
+      .regions {
+        background-color: $Dark-Blue;
+
+        li {
+          color: white;
+        }
+      }
+    }
+  }
+
+  //COUNTRY PAGE
+
+  .single-country-page {
+    padding-top: 50px;
+    width: 100vw;
+    margin: 0 auto;
+
+    .back-button {
+      margin-left: 10px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .country {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .country-page-cont {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .flag {
+          height: auto;
+          width: 100%;
+        }
+
+        .info-single-country {
+          gap: 30px;
+          width: 100%;
+
+          h1 {
+            font-size: 2rem;
+          }
+
+          .all-info {
+            h5 {
+              font-weight: 700;
+
+              span {
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  //NAVBAR
+
+  nav {
+    padding: 10px;
+  }
+
+  //HOME
+
+  .home {
+    .home-cont {
+      width: 100vw;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      .countries {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .country-card {
+          height: 300px;
+          width: 280px;
+          margin-bottom: 20px;
+
+          .flag-cont {
+            height: 150px;
+            width: 280px;
+          }
+
+          .single-country-info {
+            padding: 10px;
+
+            h2 {
+              margin-bottom: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //COUNTRY PAGE
+
+  .single-country-page {
+    width: 100vw;
+
+    .country {
+      .country-page-cont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 150px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  //NAVBAR
+
+  nav {
+    padding: 20px;
+
+    .navbar-cont {
+      width: 100vw;
+    }
+  }
+
+  //HOME
+
+  .home {
+    .home-cont {
+      width: 95vw;
+
+      .countries {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  //COUNTRY PAGE
+
+  .single-country-page {
+    width: 100vw;
+
+    .country {
+      .country-page-cont {
+        flex-direction: column;
+        margin-bottom: 100px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  //NAVBAR
+
+  nav {
+    .navbar-cont {
+      width: 95vw;
+    }
+  }
+
+  //HOME
+
+  .home {
+    .home-cont {
+      width: 100vw;
+
+      .countries {
+        justify-content: space-between;
+        gap: 0;
+        padding: 10px;
+
+        .country-card {
+          height: auto;
+          width: 23%;
+          margin-bottom: 50px;
+
+          .flag-cont {
+            height: 45%;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  //INPUTS
+
+  .inputs {
+    padding: 50px 10px;
+  }
+
+  //COUNTRY PAGE
+
+  .single-country-page {
+    width: 95vw;
+
+    .country {
+      .country-page-cont {
+        gap: 50px;
+
+        .flag {
+          height: 400px;
+          width: 600px;
         }
       }
     }
